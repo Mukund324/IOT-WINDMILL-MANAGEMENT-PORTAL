@@ -19,7 +19,7 @@ td {
     vertical-align: center;
  }
 
- input[type=text]
+ input[type=text],input[type=list]
  {
   width: 500px;
  }
@@ -77,4 +77,13 @@ td {
     background: #4CAF50; /* Green background */
     cursor: pointer; /* Cursor on hover */
   }
+
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+
+
 
