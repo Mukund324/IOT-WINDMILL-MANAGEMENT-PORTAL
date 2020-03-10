@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>
+            WELCOME TO THE IoT PORTAL
+        </title>
+        <link rel="stylesheet" type="text/css" href="E:\4TH SEM PROJECTS\IoT proj\public\css\login.css">
+    </head>
+    <body>
+        <div class="icondiv">
+            <img src="E:\4TH SEM PROJECTS\IoT proj\public\images\Windmill-IoT.jpg">
+        </div>
+        <div class="iLogin">
+            <div class="center">
+                <form formaction="E:\4TH SEM PROJECTS\IoT proj\mainmenu.html">            
+                    <label for="uname"><b>Username</b></label><br>
+                    <input type="text" placeholder="Username" name="uname" required><br>
+                    <label for="psw"><b>Password</b></label><br>
+                    <input type="password" placeholder="Password" name="psw" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required><br>
+                    <!--<input type="password" placeholder="Password" name="psw" required >-->
+                    <!--<button type="submit" onclick="return check(this.form)">Login</button>-->
+                    <button type="submit" formaction="E:\4TH SEM PROJECTS\IoT proj\mainmenu.html">Login</button> 
+                    <label>
+                        <input type="checkbox" checked="checked" name="remember"> Remember me
+                    </label>
+                    <div class="below" style="background-color:#8bacdf">
+                        <button type="button" class="Registerbtn" onclick="location.href='E:/4TH SEM PROJECTS/IoT proj/registerUser.html'" >Register</button>
+                        <span class="psw">Forgot <a href="#">password?</a></span>
+                    </div>    
+                </form>
+            </div>
+        </div>
+        <!--
+        <script>
+            function check(form)
+            {
+                if(form.uname.value == "mukund" && form.psw.value == "Mukund@2305")
+                {
+                    location.replace("E:/4TH SEM PROJECTS/IoT proj/mainmenu.html");
+                }
+            else
+                {
+                    alert("Error Password or Username")
+                    return false;
+                 }
+            }
+            </script>   
+        -->         
+    </body>
+</html>
