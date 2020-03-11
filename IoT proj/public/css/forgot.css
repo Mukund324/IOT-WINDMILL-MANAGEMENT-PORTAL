@@ -1,0 +1,125 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+#header-main
+ {
+    height: 100px;
+    background-color: #2F4F4F;
+  }
+  
+  #header-main img
+  {
+    height: 70px;
+    width: 88px;
+    margin-top: 15px;
+    margin-left: 10px;
+    background-color: white;
+    align-content: center;
+    box-sizing: border-box;
+    border: 2px solid #2F4F4F;
+    padding: 5px;
+  }
+  
+  #header-main h1{
+    float:right;
+    height: 80px;
+    font-size:50px;
+    color: white;
+    background-color: #2F4F4F;
+    width:90%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+  }
+
+.iLogin
+{
+    width: 50%;
+    height: 50%;
+    margin: 5% 25% 5% 25%;
+  
+}
+
+.labelemail
+{
+    width: 50%;
+    padding: 5px 20px 1px 0px;
+    margin: 15% 25% 0% 25%;
+    display:inline-block;
+}
+
+.labelphone
+{
+    width: 50%;
+    padding: 5px 20px 1px 0px;
+    margin: 0% 25% 0% 25%;
+    display:inline-block;
+}
+
+.labelsecq
+{
+    width: 50%;
+    padding: 5px 20px 1px 0px;
+    margin: 0% 25% 0% 25%;
+    display:inline-block;
+}
+
+input[type=text]
+{
+    width: 50%;
+    padding: 5px 20px 5px 0px;
+    margin: 0% 25% 0% 25%;
+    display:inline-block;
+    border: 1px solid black;
+
+}
+
+button
+{
+    background-color:#4caf50;
+    color: white;
+    padding: auto;
+    margin: 1% 25% 5% 25%;
+    border: none;
+    cursor: pointer;
+    height: 35px;
+    width:  50%;
+    font-size: medium;
+    font-family: sans-serif;
+}
+
+button:hover
+{
+    opacity:0.9;
+}   
+.footer 
+{
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-color: #2F4F4F;
+  height: 20px;
+  line-height: 20px;
+  font-size:15px;
+  color: white;
+  text-align: center;
+  
+}
+
+.notifypara
+{
+    float:right;
+    height: 80px;
+    font-size:20px;
+    color: white;
+    background-color: rgb(22, 194, 194);
+    width:90%;
+    text-align: center;
+    box-sizing: border-box;
+    padding: 20px;
+  }
