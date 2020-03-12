@@ -125,6 +125,22 @@ body {
 input{
   padding-left: 17px;
 }
+.labelphone
+{
+    width: 100%;
+    padding: 5px 5px 1px 0px;
+    margin: 0% 25% 0% 25%;
+    display:inline-block;
+}
+
+.labelsecq
+{
+    width: 100%;
+    padding: 5px 5px 1px 0px;
+    margin: 0% 25% 0% 25%;
+    display:inline-block;
+}
+
 .input-wrapper{
   position: relative;
 }
