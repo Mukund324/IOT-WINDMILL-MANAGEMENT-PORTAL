@@ -79,8 +79,8 @@
                    <option value="Serial">Serial</option>
                  </select></td>
            </tr>
-           <td align="right" ><label for="ParamList"><b>Monitoring Parameter </b></label></td>
-           <td> <select id="ParamList" name="ParamList">
+           <td align="right"  ><label for="ParamList"><b>Monitoring Parameter </b></label></td>
+           <td> <select onchange="Selectgraph()" id="ParamList" name="ParamList">
                 <option value="None">--</option>
                 <option value="Wind Speed">Wind Speed</option>
                 <option value="Blade Speed">Blade Speed</option>
@@ -92,7 +92,6 @@
            <tr><td></td></tr>
            <tr><td></td></tr>
            <tr>
-               <td align="center" onclick="wsgraph()" ><input type="button" class="button" value="Monitor" ></td>
                <td align="center"><input type="button" class="button" value="Reset" ></td>
                <td align="center"><input type="button" class="button"  onclick="location.href='E:/4TH SEM PROJECTS/IoT proj/mainmenu.html'" value="MainMenu"></td>
            </tr>          
@@ -106,6 +105,35 @@
         <p> Copyright &copy 2020 ABC Corporation </p>
     </div> 
     <script>
+    function Selectgraph()
+    {
+      var val=(document.getElementById("ParamList").options[document.getElementById("ParamList").selectedIndex].value);
+      if (val=="Wind Speed")
+       {
+         wsgraph();
+       }
+       else if(val=="Blade Speed")
+       {
+         bsgraph();
+       }
+       else if(val=="Ambient Temperature")
+       {
+         atgraph();
+       }
+
+       else if(val=="Current")
+       {
+         cgraph();
+       }
+       else if(val=="Humidity")
+       {
+         hgraph();
+       }
+       else
+       {
+        window.alert(val);
+       }
+    } 
     function wsgraph()
     {
       const ctx = document.getElementById('WSChart').getContext('2d');    
@@ -122,10 +150,10 @@
           labels: labels,
           datasets: [{
               fill: false,
-              label: 'Wind Speed',
+              label: 'WIND SPEED',
               data: data1,
-              borderColor: '#fe8b36',
-              backgroundColor: '#fe8b36',
+              borderColor: '#008080',
+              backgroundColor: '#FF0000',
               lineTension: 0,
           }]
       }
@@ -161,7 +189,259 @@
                       display: true,
                       scaleLabel: {
                           display: true,
-                          labelString: "kmph",
+                          labelString: "KMPH",
+                      }
+                  }]
+              }
+          }
+      }
+      const myChart = new Chart(ctx, options);
+    }
+    function bsgraph()
+    {
+      const ctx = document.getElementById('WSChart').getContext('2d');    
+      var result = [{ x: "00:00", y: "50" }, { x: "01:00", y: "20" }, { x: "02:00", y: "19" }, { x: "03:00", y: "26" }, { x: "04:00", y: "85" }, { x: "05:00", y: "70" }, 
+                    { x: "06:00", y: "60" }, { x: "07:00", y: "55" }, { x: "08:00", y: "49" }, { x: "09:00", y: "34" }, { x: "10:00", y: "38" }, { x: "11:00", y: "12" }, 
+                    { x: "12:00", y: "59" }, { x: "13:00", y: "38" }, { x: "14:00", y: "27" }, { x: "15:00", y: "43" }, { x: "16:00", y: "68" }, { x: "17:00", y: "38" }, 
+                    { x: "18:00", y: "59" }, { x: "19:00", y: "45" }, { x: "20:00", y: "39" }, { x: "21:00", y: "59" }, { x: "22:00", y: "35" }, { x: "23:00", y: "15" }
+                   ];
+      // parse labels and data
+      var labels = result.map(e => moment(e.x, 'HH:mm'));
+      var data1 = result.map(e => +e.y);
+      const data = {
+          // Labels should be Date objects
+          labels: labels,
+          datasets: [{
+              fill: false,
+              label: 'BLADE SPEED',
+              data: data1,
+              borderColor: '#0000FF',
+              backgroundColor:'#00FF00',
+              lineTension: 0,
+          }]
+      }
+       const options = {
+         type: 'line',
+          data: data,
+          options: {
+              fill: false,
+              responsive: true,
+              title:{
+                      display: true,
+                      text:    "Blade speed vs Time",
+                    },
+              scales: {
+                  xAxes: [{
+                      type: 'time',
+                      time: {
+                          unit: 'hour',
+                          displayFormats: {
+                          quarter: 'HH:mm',
+                          },
+                      },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "Time",
+                      }
+                  }],
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                       },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "KMPH",
+                      }
+                  }]
+              }
+          }
+      }
+      const myChart = new Chart(ctx, options);
+    }
+    function atgraph()
+    {
+      const ctx = document.getElementById('WSChart').getContext('2d');    
+      var result = [{ x: "00:00", y: "15" }, { x: "01:00", y: "38" }, { x: "02:00", y: "60" }, { x: "03:00", y: "40" }, { x: "04:00", y: "90" }, { x: "05:00", y: "45" }, 
+                    { x: "06:00", y: "45" }, { x: "07:00", y: "50" }, { x: "08:00", y: "90" }, { x: "09:00", y: "30" }, { x: "10:00", y: "69" }, { x: "11:00", y: "25" }, 
+                    { x: "12:00", y: "85" }, { x: "13:00", y: "60" }, { x: "14:00", y: "48" }, { x: "15:00", y: "24" }, { x: "16:00", y: "45" }, { x: "17:00", y: "30" }, 
+                    { x: "18:00", y: "31" }, { x: "19:00", y: "23" }, { x: "20:00", y: "26" }, { x: "21:00", y: "28" }, { x: "22:00", y: "39" }, { x: "23:00", y: "49" }
+                   ];
+      // parse labels and data
+      var labels = result.map(e => moment(e.x, 'HH:mm'));
+      var data1 = result.map(e => +e.y);
+      const data = {
+          // Labels should be Date objects
+          labels: labels,
+          datasets: [{
+              fill: false,
+              label: 'AMBIENT TEMPERATURE',
+              data: data1,
+              borderColor: '	#800080',
+              backgroundColor:'#FFFF00',
+              lineTension: 0,
+          }]
+      }
+       const options = {
+         type: 'line',
+          data: data,
+          options: {
+              fill: false,
+              responsive: true,
+              title:{
+                      display: true,
+                      text:    "Temperature vs Time",
+                    },
+              scales: {
+                  xAxes: [{
+                      type: 'time',
+                      time: {
+                          unit: 'hour',
+                          displayFormats: {
+                          quarter: 'HH:mm',
+                          },
+                      },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "Time",
+                      }
+                  }],
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                       },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "CELSIUS",
+                      }
+                  }]
+              }
+          }
+      }
+      const myChart = new Chart(ctx, options);
+    }
+    function cgraph()
+    {
+      const ctx = document.getElementById('WSChart').getContext('2d');    
+      var result = [{ x: "00:00", y: "30" }, { x: "01:00", y: "45" }, { x: "02:00", y: "25" }, { x: "03:00", y: "05" }, { x: "04:00", y: "10" }, { x: "05:00", y: "17" }, 
+                    { x: "06:00", y: "25" }, { x: "07:00", y: "35" }, { x: "08:00", y: "48" }, { x: "09:00", y: "50" }, { x: "10:00", y: "51" }, { x: "11:00", y: "52" }, 
+                    { x: "12:00", y: "54" }, { x: "13:00", y: "54" }, { x: "14:00", y: "42" }, { x: "15:00", y: "40" }, { x: "16:00", y: "38" }, { x: "17:00", y: "28" }, 
+                    { x: "18:00", y: "26" }, { x: "19:00", y: "24" }, { x: "20:00", y: "19" }, { x: "21:00", y: "15" }, { x: "22:00", y: "10" }, { x: "23:00", y: "19" }
+                   ];
+      // parse labels and data
+      var labels = result.map(e => moment(e.x, 'HH:mm'));
+      var data1 = result.map(e => +e.y);
+      const data = {
+          // Labels should be Date objects
+          labels: labels,
+          datasets: [{
+              fill: false,
+              label: 'CURRENT',
+              data: data1,
+              borderColor: '#FFD700',
+              backgroundColor:'#DC143C',
+              lineTension: 0,
+          }]
+      }
+       const options = {
+         type: 'line',
+          data: data,
+          options: {
+              fill: false,
+              responsive: true,
+              title:{
+                      display: true,
+                      text:    "Current vs Time",
+                    },
+              scales: {
+                  xAxes: [{
+                      type: 'time',
+                      time: {
+                          unit: 'hour',
+                          displayFormats: {
+                          quarter: 'HH:mm',
+                          },
+                      },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "Time",
+                      }
+                  }],
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                       },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "AMPS",
+                      }
+                  }]
+              }
+          }
+      }
+      const myChart = new Chart(ctx, options);
+    }
+    function hgraph()
+    {
+      const ctx = document.getElementById('WSChart').getContext('2d');    
+      var result = [{ x: "00:00", y: "20" }, { x: "01:00", y: "30" }, { x: "02:00", y: "35" }, { x: "03:00", y: "32" }, { x: "04:00", y: "30" }, { x: "05:00", y: "45" }, 
+                    { x: "06:00", y: "48" }, { x: "07:00", y: "50" }, { x: "08:00", y: "51" }, { x: "09:00", y: "52" }, { x: "10:00", y: "56" }, { x: "11:00", y: "49" }, 
+                    { x: "12:00", y: "48" }, { x: "13:00", y: "47" }, { x: "14:00", y: "38" }, { x: "15:00", y: "42" }, { x: "16:00", y: "60" }, { x: "17:00", y: "50" }, 
+                    { x: "18:00", y: "40" }, { x: "19:00", y: "30" }, { x: "20:00", y: "44" }, { x: "21:00", y: "20" }, { x: "22:00", y: "29" }, { x: "23:00", y: "15" }
+                   ];
+      // parse labels and data
+      var labels = result.map(e => moment(e.x, 'HH:mm'));
+      var data1 = result.map(e => +e.y);
+      const data = {
+          // Labels should be Date objects
+          labels: labels,
+          datasets: [{
+              fill: false,
+              label: 'HUMIDITY',
+              data: data1,
+              borderColor: '#7CFC00',
+              backgroundColor:'#8B4513',
+              lineTension: 0,
+          }]
+      }
+       const options = {
+         type: 'line',
+          data: data,
+          options: {
+              fill: false,
+              responsive: true,
+              title:{
+                      display: true,
+                      text:    "Humidity vs Time",
+                    },
+              scales: {
+                  xAxes: [{
+                      type: 'time',
+                      time: {
+                          unit: 'hour',
+                          displayFormats: {
+                          quarter: 'HH:mm',
+                          },
+                      },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "Time",
+                      }
+                  }],
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero: true,
+                       },
+                      display: true,
+                      scaleLabel: {
+                          display: true,
+                          labelString: "HUMIDITY UNIT",
                       }
                   }]
               }
