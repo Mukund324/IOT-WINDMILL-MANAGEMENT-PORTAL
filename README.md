@@ -1,13 +1,19 @@
 # IoT Windmill Farm Mangement Portal
 
 ## ABOUT:
-- This Portal supports WIND MILL FARM MANAGEMENT by providing fuctionalities to onboard devices Monitor Manage devices,Analyse collected data for preventive maintanence and create reports for monitizing the Windmill Farms
-- Using HTML,CSS and JS
-(UI only)
+- This Portal supports WIND MILL FARM MANAGEMENT by providing fuctionalities to 
+    - Onboard devices
+    - Monitor 
+    - Manage devices
+    - Analyse collected data for preventive maintanence 
+    - Create reports for monitizing the Windmill Farms
 
-## Developer:
+## Language:
 
-  MUKUND.G
+- HTML
+- CSS 
+- JS
+  - ***(UI only)***
 
 ## Contact us: 
 
